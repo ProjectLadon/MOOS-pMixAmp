@@ -1,0 +1,9 @@
+//------------------------------------------------
+// pMixAmp config block
+
+ProcessConfig = pMixAmp
+{
+   AppTick   = 4
+   CommsTick = 4
+}
+
