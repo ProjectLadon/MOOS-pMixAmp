@@ -1,0 +1,9 @@
+active: true
+derived: false
+level: 2.5
+links: []
+normative: true
+ref: ''
+reviewed: null
+text: |
+  This module **shall** add the output offset to the sum and multiply the result by output gain.

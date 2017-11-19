@@ -1,0 +1,9 @@
+active: true
+derived: false
+level: 1.2.3.3
+links: []
+normative: true
+ref: ''
+reviewed: null
+text: |
+  The elements of this array **may** each have a ```gain``` key. If it is not present, its value **shall** default to 1.

@@ -1,0 +1,9 @@
+active: true
+derived: false
+level: 1.2.4.0
+links: []
+normative: false
+ref: ''
+reviewed: null
+text: |
+  The document **must** contain an ```output```, which **must** be a JSON object.

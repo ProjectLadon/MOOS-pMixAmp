@@ -1,0 +1,9 @@
+active: true
+derived: false
+level: 1.2.3.1
+links: []
+normative: true
+ref: ''
+reviewed: null
+text: |
+  The elements of this array **must** each have a ```name``` key. This module **shall** subscribe to the named MOOS variable.

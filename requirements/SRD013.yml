@@ -1,0 +1,9 @@
+active: true
+derived: false
+level: 1.2.4.1
+links: []
+normative: true
+ref: ''
+reviewed: null
+text: |
+  This object **must** have a ```name``` key. This module **shall** publish its output to that variable.

@@ -1,0 +1,9 @@
+active: true
+derived: false
+level: 2.4
+links: []
+normative: true
+ref: ''
+reviewed: null
+text: |
+  This module **shall** sum all of the processed inputs.

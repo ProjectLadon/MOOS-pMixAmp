@@ -1,0 +1,9 @@
+active: true
+derived: false
+level: 1.2.1
+links: []
+normative: true
+ref: ''
+reviewed: null
+text: |
+  The configuration file **must** have one ```mixer``` entry.

@@ -1,0 +1,9 @@
+active: true
+derived: false
+level: 2.1
+links: []
+normative: true
+ref: ''
+reviewed: null
+text: |
+  On each comms tick, this module **shall** read and process all inputs.
