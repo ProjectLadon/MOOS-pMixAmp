@@ -4,6 +4,6 @@ level: 2.1
 links: []
 normative: true
 ref: ''
-reviewed: null
+reviewed: 52708acd0972d6b4b7b9a68b51d0c749
 text: |
   On each comms tick, this module **shall** read and process all inputs.

@@ -4,6 +4,6 @@ level: 1.2.4.1
 links: []
 normative: true
 ref: ''
-reviewed: null
+reviewed: b81c74e2146722d5ffedae1bb1afee75
 text: |
   This object **must** have a ```name``` key. This module **shall** publish its output to that variable.

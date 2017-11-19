@@ -4,6 +4,6 @@ level: 1.2.3.2
 links: []
 normative: true
 ref: ''
-reviewed: null
+reviewed: 9dc3d23b97e7779e4edc531f939a4b99
 text: |
   The elements of this array **may** each have an ```offset``` key. If it is not present, its value **shall** default to 0.

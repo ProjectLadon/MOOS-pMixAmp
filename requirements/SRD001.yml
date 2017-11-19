@@ -4,6 +4,8 @@ level: 1.0
 links: []
 normative: false
 ref: ''
-reviewed: null
+reviewed: 2d04ffa6c63f74063b62cb97f200a752
 text: |
-  MOOS Mixer/Amplifier Block
+  MOOS Mixer/Amplifier Module
+
+  This module provides a multi-input mixer/amplifier block.

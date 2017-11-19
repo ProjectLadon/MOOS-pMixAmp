@@ -4,6 +4,6 @@ level: 1.2.1
 links: []
 normative: true
 ref: ''
-reviewed: null
+reviewed: 2acf21cc63e91aa9972fc57b4c113a87
 text: |
   The configuration file **must** have one ```mixer``` entry.

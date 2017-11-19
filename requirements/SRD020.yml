@@ -4,6 +4,6 @@ level: 2.4
 links: []
 normative: true
 ref: ''
-reviewed: null
+reviewed: 046f730af916ce4802e778f559622557
 text: |
   This module **shall** sum all of the processed inputs.

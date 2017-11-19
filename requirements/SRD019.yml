@@ -4,6 +4,6 @@ level: 2.3
 links: []
 normative: true
 ref: ''
-reviewed: null
+reviewed: 3e0b61a02668201b9e184fc94b866bb1
 text: |
   This module **shall** add each input's offset to the input and multiply the result by that input's gain.

@@ -4,6 +4,6 @@ level: 1.1.1
 links: []
 normative: true
 ref: ''
-reviewed: null
+reviewed: 1277f267c946dcf7fe1c426448e6b7c4
 text: |
   This module **shall** be implemented as a MOOS Appcasting App as describe in the (http://oceanai.mit.edu/moos-ivp/pmwiki/pmwiki.php)[MOOS-IvP wiki].

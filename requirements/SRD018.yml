@@ -4,6 +4,6 @@ level: 2.2
 links: []
 normative: true
 ref: ''
-reviewed: null
+reviewed: 2b5b70d3346dd0d5d134d0f25d04d57f
 text: |
   Each input **must** be a DOUBLE; if it is not, this module **shall** ignore it.

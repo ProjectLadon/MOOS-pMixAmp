@@ -4,6 +4,6 @@ level: 1.1.2
 links: []
 normative: true
 ref: ''
-reviewed: null
+reviewed: 569285c4cbf38b39d235b9af59f102ac
 text: |
   This module **shall** use (http://www.rapidjson.org)[rapidjson] as the JSON parse/unparse library.

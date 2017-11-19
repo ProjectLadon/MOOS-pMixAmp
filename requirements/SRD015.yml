@@ -4,6 +4,6 @@ level: 1.2.4.3
 links: []
 normative: true
 ref: ''
-reviewed: null
+reviewed: c0a779dd87d0074db751852554e74c22
 text: |
   This object **may** each have a ```gain``` key. If it is not present, its value **shall** default to 1.

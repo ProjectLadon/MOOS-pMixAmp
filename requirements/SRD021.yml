@@ -4,6 +4,6 @@ level: 2.5
 links: []
 normative: true
 ref: ''
-reviewed: null
+reviewed: dcc6c59436f7b569e3768a52e8744637
 text: |
   This module **shall** add the output offset to the sum and multiply the result by output gain.
