@@ -36,3 +36,5 @@ CMakeFiles
 Makefile
 cmake_install.cmake
 
+# Generated header files
+schema/*.h
