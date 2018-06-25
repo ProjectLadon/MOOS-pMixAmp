@@ -21,13 +21,17 @@ using namespace rapidjson;
 
 MixAmpInput::MixAmpInput (rapidjson::Value &v) {
         var = v["name"].GetString();
+	var_upper = var;
+	MOOSToUpper(var_upper);
         if (v.HasMember("gain")) gain = v["gain"].GetDouble();
         if (v.HasMember("offset")) offset = v["offset"].GetDouble();
 	cerr << "Built input " << var << endl;
 }
 
 bool MixAmpInput::procMail(CMOOSMsg &msg) {
-    if ((msg.GetKey() == var) && (msg.IsDouble())) {
+    string key = msg.GetKey();
+    MOOSToUpper(key);
+    if ((key == var_upper) && (msg.IsDouble())) {
         val = msg.GetDouble();
         return true;
     } else {
@@ -51,6 +55,13 @@ bool Mixer::procMail(CMOOSMsg &msg) {
         result |= i.procMail(msg);
     }
     return result;
+}
+
+void Mixer::sum() {
+    output = 0.0;
+    for (auto &i: inputs) {
+        output += i.cooked();
+    }
 }
 
 std::list<std::string> Mixer::buildReportHeader() {
@@ -82,14 +93,18 @@ bool MixAmp::OnNewMail(MOOSMSG_LIST &NewMail) {
         bool result = false;
         for (auto &m: mixers) {
             bool tmp = m.procMail(msg);
-            if (tmp) m.transmit(this);
+            if (tmp) {
+                m.sum();
+                m.transmit(this);
+	    }
             result |= tmp;
         }
-        if(!result || (key != "APPCAST_REQ")) { // handled by AppCastingMOOSApp
+        if(!result && (key != "APPCAST_REQ")) { // handled by AppCastingMOOSApp
             reportRunWarning("Unhandled Mail: " + key);
 	    cerr << "Unhandled Mail: " << key << endl;
         }
     }
+
     return(true);
 }
 
@@ -195,23 +210,15 @@ bool MixAmp::buildReport()
   m_msgs << " pMixAmp                                     \n";
   m_msgs << "============================================ \n";
 
-  list<string> headers;
-  list<string> values;
-
   for (auto &m: mixers) {
       list<string> tmph = m.buildReportHeader();
-      for (auto &h: tmph) headers.push_back(h);
       list<string> tmpv = m.buildReportLines();
-      for (auto &v: tmpv) values.push_back(v);
+      ACTable actab(tmph.size());
+      for (auto &h: tmph) actab << h;
+      actab.addHeaderLines();
+      for (auto &v: tmpv) actab << v;
+      m_msgs << actab.getFormattedString() << endl;
   }
-
-  // Assemble the response
-  ACTable actab(headers.size());
-  for (auto &h: headers) actab << h;
-  actab.addHeaderLines();
-  for (auto &v: values) actab << v;
-  m_msgs << actab.getFormattedString();
-
 
   return(true);
 }

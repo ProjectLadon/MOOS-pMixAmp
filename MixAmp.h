@@ -22,6 +22,7 @@ class MixAmp : public AppCastingMOOSApp {
         MixAmp() {};
         ~MixAmp() {};
         bool notify(std::string var, double val) {
+	    std::cerr << "Transmitting " << std::to_string(val) << " on " << var << std::endl;
             return Notify(var, val);
         };
         bool registerVar(std::string var) {
@@ -56,6 +57,7 @@ class MixAmpInput {
         double offset = 0;
         double val = 0;
         std::string var = "";
+	std::string var_upper = "";
 };
 
 class Mixer {
@@ -66,6 +68,7 @@ class Mixer {
         bool transmit (MixAmp *m) {return m->notify(var, cooked());};
         std::list<std::string> buildReportHeader();
         std::list<std::string> buildReportLines();
+	void sum();
         double raw() {return output;};
         double cooked() {return ((output + offset) * gain);};
 
