@@ -23,6 +23,7 @@ MixAmpInput::MixAmpInput (rapidjson::Value &v) {
         var = v["name"].GetString();
         if (v.HasMember("gain")) gain = v["gain"].GetDouble();
         if (v.HasMember("offset")) offset = v["offset"].GetDouble();
+	cerr << "Built input " << var << endl;
 }
 
 bool MixAmpInput::procMail(CMOOSMsg &msg) {
@@ -41,6 +42,7 @@ Mixer::Mixer(rapidjson::Value &v) {
     for (auto &i: v["inputs"].GetArray()) {
         inputs.emplace_back(i);
     }
+    cerr << "Built mixer " << var << endl;
 }
 
 bool Mixer::procMail(CMOOSMsg &msg) {
@@ -57,14 +59,16 @@ std::list<std::string> Mixer::buildReportHeader() {
     for (auto &i: inputs) {
         headers.push_back("Input: " + i.getVar());
     }
+    return headers;
 }
 
 std::list<std::string> Mixer::buildReportLines() {
-    std::list<std::string> headers;
-    headers.push_back(to_string(cooked()));
+    std::list<std::string> lines;
+    lines.push_back(to_string(cooked()));
     for (auto &i: inputs) {
-        headers.push_back(to_string(i.cooked()));
+        lines.push_back(to_string(i.cooked()));
     }
+    return lines;
 }
 
 //---------------------------------------------------------
@@ -83,6 +87,7 @@ bool MixAmp::OnNewMail(MOOSMSG_LIST &NewMail) {
         }
         if(!result || (key != "APPCAST_REQ")) { // handled by AppCastingMOOSApp
             reportRunWarning("Unhandled Mail: " + key);
+	    cerr << "Unhandled Mail: " << key << endl;
         }
     }
     return(true);
@@ -93,6 +98,7 @@ bool MixAmp::OnNewMail(MOOSMSG_LIST &NewMail) {
 
 bool MixAmp::OnConnectToServer() {
     registerVariables();
+    cerr << "MixAmp variables registered! (OnConnectToServer)" << endl;
     return(true);
 }
 
@@ -166,6 +172,8 @@ bool MixAmp::OnStartUp() {
     }
 
     registerVariables();
+    cerr << "MixAmp variables registered! (OnStartUp)" << endl;
+    m_bQuitOnIterateFail = false;
     return(true);
 }
 
@@ -203,6 +211,7 @@ bool MixAmp::buildReport()
   actab.addHeaderLines();
   for (auto &v: values) actab << v;
   m_msgs << actab.getFormattedString();
+
 
   return(true);
 }
