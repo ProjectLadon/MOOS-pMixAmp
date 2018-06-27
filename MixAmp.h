@@ -22,7 +22,6 @@ class MixAmp : public AppCastingMOOSApp {
         MixAmp() {};
         ~MixAmp() {};
         bool notify(std::string var, double val) {
-	    std::cerr << "Transmitting " << std::to_string(val) << " on " << var << std::endl;
             return Notify(var, val);
         };
         bool registerVar(std::string var) {
