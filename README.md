@@ -1,13 +1,13 @@
 # MOOS-pMixAmp
 
-Mixer/Amplifier block for MOOS. Each mux/amp channel 
+Mixer/Amplifier block for MOOS. Each mux/amp channel
 
 ## Dependencies
 * MOOS-IvP
 * https://github.com/Tencent/rapidjson/ -- provides JSON parse/deparse
 
 ## Configuration Options
-* mixer -- defines a mixer with one or more inputs using the following JSON:
+* mixer -- defines a mixer with one or more inputs using the following JSON schema:
 ```
 {
 	"$schema": "http://json-schema.org/schema#",
