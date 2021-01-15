@@ -35,6 +35,7 @@
 CMakeFiles
 Makefile
 cmake_install.cmake
+tags
 
 # Generated header files
 schema/*.h
